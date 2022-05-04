@@ -7,11 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
-}
 
 .App-header {
   min-height: 100vh;
@@ -26,14 +21,15 @@
   color: rgb(112, 76, 182);
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.action-btn{
+  width: 132px;
+  height: 40px;
+  color: #fff;
+  border: 0;
+  background: radial-gradient(100% 100% at 49.7% 100%, #4077C1 0%, #4077C1 100%);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
+.action-btn:hover{
+  background: radial-gradient(100% 100% at 49.7% 100%, #215395 0%, #1a4987 100%);
+}
+

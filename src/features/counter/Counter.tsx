@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { Link } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '../../app/redux/hooks';
 import {
   decrement,
   increment,
@@ -62,6 +62,9 @@ export function Counter() {
         >
           Add If Odd
         </button>
+
+        <Link to="/payment">tt-crypto</Link>
+
       </div>
     </div>
   );
