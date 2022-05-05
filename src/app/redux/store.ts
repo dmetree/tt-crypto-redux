@@ -1,11 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../../features/counter/counterSlice';
+import cryptoReducer from './reducers/crypto';
+import priceReducer from './reducers/price';
+import coinReducer from './reducers/coinSlice';
+import userReducer from './reducers/userSlice'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    // payment_method: crypto,
-    // selected_crypto: cryptoReducer,
+    crypto: cryptoReducer,
+    coin: coinReducer,
+    price: priceReducer,
+    users: userReducer
   },
 });
 

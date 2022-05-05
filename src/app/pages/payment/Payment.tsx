@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import BitpayInfo from '../../components/bitpay-info/BitpayInfo';
 import EnterAddress from '../../components/enter-address/EnterAddress';
 import SelectCrypto from '../../components/select-crypto/SelectCrypto';
@@ -7,7 +8,10 @@ import TransactionPending from '../../components/transaction-pending/Transaction
 import TransactionStatus from '../../components/transaction-status/TransactionStatus';
 import s from './Payment.module.css';
 
+
 export const Payment = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className={s.wrapper}>
       <div className={s.payment}>
@@ -21,7 +25,6 @@ export const Payment = () => {
           </div>
           <div>Change</div>
         </div>
-
 
         <SelectCrypto/>
         <SelectPromo/>

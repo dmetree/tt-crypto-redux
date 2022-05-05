@@ -5,6 +5,7 @@
 }
 
 .pending_info{
+    width: 100%;
     padding: 4rem 0 2rem;
     margin-bottom: 3rem;
     background-color: #fff;
