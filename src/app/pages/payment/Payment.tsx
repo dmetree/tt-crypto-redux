@@ -12,11 +12,18 @@ import SelectPromo from '../../components/select-promo/SelectPromo';
 import TransactionPending from '../../components/transaction-pending/TransactionPending';
 import TransactionStatus from '../../components/transaction-status/TransactionStatus';
 import s from './Payment.module.css';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Payment = () => {
 
   const selected_crypto_name = useAppSelector((state) => state.coin.selectedCoin.name)
+
+  
+  const navigate = useNavigate();
+  const change = () => {
+    navigate(`/`)
+  }
 
   return (
     <div className={s.wrapper}>
@@ -32,17 +39,17 @@ export const Payment = () => {
           <div>Change</div>
         </div>
 
-        {
+        {/* {
           selected_crypto_name ?
           <div className={s.payment_option}>
             <div className={s.crypto_title}>
               <img src="" alt="" />
               <div>{selected_crypto_name}</div>
             </div>
-            <div>Change</div>
+            <div onClick={() => change()}>Change</div>
           </div> :
           ''
-        }
+        } */}
         
 
         <Routes>

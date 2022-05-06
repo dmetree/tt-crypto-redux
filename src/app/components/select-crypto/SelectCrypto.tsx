@@ -9,11 +9,12 @@ import { useNavigate } from 'react-router-dom';
 const SelectCrypto = () => {
   const dispatch = useAppDispatch();
   
-  
+
   const navigate = useNavigate();
   const goFoward = () => {
     navigate(`/select-promo`)
   }
+  
   
   const selected_crypto_name = useAppSelector((state) => state.coin.selectedCoin.name)
   const selected_crypto_eur_price = useAppSelector((state) => state.coin.selectedCoin.eur_rate)
@@ -26,6 +27,7 @@ const SelectCrypto = () => {
     crypto_price = (eur_item_price / selected_crypto_eur_price)
   }
 
+
   
   useEffect(() => {
     dispatch(fetchCoins())
@@ -35,25 +37,26 @@ const SelectCrypto = () => {
   
 
   return (
-    <div className={s.wrapper}>
+    <>
+      <div className={s.wrapper}>
       <div className={s.select}>Select your crypto currency</div>
       <div>
-      {
-        coins.map(coin => (
-        <CryptoItem
-          key={coin.name}
-          crypto={coin}
-          onClick={() => dispatch(setCrypto(
-            {
-              src: coin.src,
-              name: coin.name,
-              eur_rate: coin.eur_rate
-            }
-          ))}
-          />
-        ))
-      }
-    </div>
+        {
+          coins.map(coin => (
+          <CryptoItem
+            key={coin.name}
+            crypto={coin}
+            onClick={() => dispatch(setCrypto(
+              {
+                src: coin.src,
+                name: coin.name,
+                eur_rate: coin.eur_rate
+              }
+            ))}
+            />
+          ))
+        }
+      </div>
 
       <div>
         <div className={s.total}>Total</div>
@@ -65,6 +68,8 @@ const SelectCrypto = () => {
 
       <button onClick={() => goFoward()} className={[s.btn, "action-btn"].join(" ")}>NEXT</button>
     </div>
+
+    </>
   )
 }
 
