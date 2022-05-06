@@ -1,5 +1,5 @@
 export interface ICrypto {
-    id: number;
-    title: string;
+    src: string;
+    name: string;
     eur_rate: number;
 }

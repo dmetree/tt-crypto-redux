@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ICrypto } from '../../interfaces/ICrypto';
-import { IUser } from '../../interfaces/IUser';
 import { ISelectedCoin } from '../../interfaces/ISelectedCoin'
 
 interface coinSlice {
@@ -13,7 +12,8 @@ interface coinSlice {
 const initialState: coinSlice = {
   coins: [],
   selectedCoin: {
-    title: 'BTC',
+    src: "",
+    name: 'BTC',
     eur_rate: 0
   },
   isLoading: false,
@@ -24,14 +24,24 @@ export const coinSlice = createSlice({
   name: 'crypto',
   initialState,
   reducers: {
-    setCrypto: (state, action: PayloadAction<ISelectedCoin>) => {
+    setCrypto(state, action: PayloadAction<ISelectedCoin>) {
       state.selectedCoin = action.payload;
     },
-    // fetchCoins: (state, action: PayloadAction<ICrypto[]>) => {
-    //   state.coins = action.payload
-    // },
+    coinFetching(state){
+      state.isLoading = true;
+    },
+    coinFetchingSuccess(state, action: PayloadAction<ICrypto[]>){
+      state.isLoading = false;
+      state.error = '';
+      state.coins = action.payload;
+    },
+    coinFetchingError(state, action: PayloadAction<string>){
+      state.isLoading = false;
+      state.error = action.payload
+     
+    }
   },
 })
 
-export const { setCrypto } = coinSlice.actions
-export default coinSlice.reducer
+export const { setCrypto, coinFetching, coinFetchingSuccess, coinFetchingError } = coinSlice.actions;
+export default coinSlice.reducer;

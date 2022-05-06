@@ -1,4 +1,5 @@
 export interface ISelectedCoin {
-    title: string;
+    src: string;
+    name: string;
     eur_rate: number;
 }

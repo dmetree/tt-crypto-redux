@@ -1,10 +1,12 @@
 .wrapper{
+    background-color: #F9F9F9;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #F9F9F9;
+    
 }
 .payment{
+    max-width: 50vw;
     padding: 4rem;
 }
 

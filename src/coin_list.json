@@ -1,0 +1,38 @@
+[
+    {
+        "src": "https://files.coinmarketcap.com/static/img/coins/16x16/bitcoin.png",
+        "name": "Bitcoin",
+        "eur_rate": 41000
+
+    },
+    {
+        "src": "https://files.coinmarketcap.com/static/img/coins/16x16/ethereum.png",
+        "name": "Ethereum",
+        "eur_rate": 3100
+    },
+    {
+        "src": "https://files.coinmarketcap.com/static/img/coins/16x16/ripple.png",
+        "name": "Ripple",
+        "eur_rate": 1
+    },
+    {
+        "src": "https://files.coinmarketcap.com/static/img/coins/16x16/litecoin.png",
+        "name": "Litecoin",
+        "eur_rate": 280
+    },
+    {
+        "src": "https://files.coinmarketcap.com/static/img/coins/16x16/dogecoin.png",
+        "name": "Dogecoin",
+        "eur_rate": 0.1
+    },
+    {
+        "src": "https://files.coinmarketcap.com/static/img/coins/16x16/monero.png",
+        "name": "Monero",
+        "eur_rate": 420
+    },
+    {
+        "src": "https://files.coinmarketcap.com/static/img/coins/16x16/zcash.png",
+        "name": "Zcash",
+        "eur_rate": 16
+    }
+]

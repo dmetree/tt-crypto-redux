@@ -7,11 +7,12 @@ import { fetchUsers } from '../../redux/reducers/actioncreators';
 const SelectCrypto = () => {
   const dispatch = useAppDispatch();
   
-  const selected_crypto_title = useAppSelector((state) => state.coin.selectedCoin.title)
+  const selected_crypto_title = useAppSelector((state) => state.coin.selectedCoin.name)
   const selected_crypto_eur_price = useAppSelector((state) => state.coin.selectedCoin.eur_rate)
   const eur_item_price = useAppSelector((state) => state.price.price_EUR)
 
-  const users = useAppSelector(state => state.users.users)
+  const users = useAppSelector(state => state.users.users);
+  const coins = useAppSelector(state => state.coin.coins);
 
   let crypto_price
   if  (eur_item_price){
@@ -27,23 +28,24 @@ const SelectCrypto = () => {
 
   return (
     <div className={s.wrapper}>
-      {JSON.stringify(users, null, 2)}
+      {/* {JSON.stringify(users, null, 2)} */}
+      {JSON.stringify(coins, null, 2)}
       <div className={s.select}>Select your crypto currency</div>
       <div>
         <div className={s.crypto_item}>
           <div>Checkbox</div>
-          <div onClick={() => dispatch(setCrypto({title: 'ETH', eur_rate: 3000}))}>ETH</div>
+          <div onClick={() => dispatch(setCrypto({src: '', name: 'ETH', eur_rate: 3000}))}>ETH</div>
           {/* <div>ETH</div> */}
           
         </div>
         <div className={s.crypto_item}>
           <div>Checkbox</div>
-          <div onClick={() => dispatch(setCrypto({title: 'BTC', eur_rate: 40000}))}>BTC</div>
+          <div onClick={() => dispatch(setCrypto({src: '', name: 'BTC', eur_rate: 40000}))}>BTC</div>
           {/* <div>BTC</div> */}
         </div>
         <div className={s.crypto_item}>
           <div>Checkbox</div>
-          <div onClick={() => dispatch(setCrypto({title: 'ADA', eur_rate: 12}))}>ADA</div>
+          <div onClick={() => dispatch(setCrypto({src: '', name: 'ADA', eur_rate: 12}))}>ADA</div>
           {/* <div>BTC</div> */}
         </div>
       </div>
