@@ -1,4 +1,9 @@
 import React, { useEffect } from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import BitpayInfo from '../../components/bitpay-info/BitpayInfo';
 import EnterAddress from '../../components/enter-address/EnterAddress';
@@ -10,7 +15,6 @@ import s from './Payment.module.css';
 
 
 export const Payment = () => {
-  const dispatch = useAppDispatch();
 
   return (
     <div className={s.wrapper}>
@@ -26,11 +30,13 @@ export const Payment = () => {
           <div>Change</div>
         </div>
 
-        <SelectCrypto/>
-        <SelectPromo/>
-        <EnterAddress/>
-        <TransactionPending/>
-        <TransactionStatus/>
+        <Routes>
+          <Route path="/" element={<SelectCrypto/>} />
+          <Route path="/select-promo" element={<SelectPromo/>} />
+          <Route path="/select-address" element={<EnterAddress/>} />
+          <Route path="/transaction-pending" element={<TransactionPending/>} />
+          <Route path="/transaction-status" element={<TransactionStatus/>} />
+        </Routes>
         
       </div>
       <BitpayInfo/>

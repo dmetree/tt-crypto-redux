@@ -2,25 +2,34 @@ import React, { useEffect } from 'react';
 import s from './SelectCrypto.module.css';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { setCrypto } from '../../redux/reducers/coinSlice';
-import { fetchUsers } from '../../redux/reducers/actioncreators';
+import { fetchCoins, fetchUsers } from '../../redux/reducers/actioncreators';
+import CryptoItem from './crypto-item/CryptoItem';
+import { useNavigate } from 'react-router-dom';
 
 const SelectCrypto = () => {
   const dispatch = useAppDispatch();
+  
+  
+  const navigate = useNavigate();
+  const goFoward = () => {
+    navigate(`/select-promo`)
+  }
   
   const selected_crypto_title = useAppSelector((state) => state.coin.selectedCoin.name)
   const selected_crypto_eur_price = useAppSelector((state) => state.coin.selectedCoin.eur_rate)
   const eur_item_price = useAppSelector((state) => state.price.price_EUR)
 
-  const users = useAppSelector(state => state.users.users);
   const coins = useAppSelector(state => state.coin.coins);
 
-  let crypto_price
+  let crypto_price = 0;
   if  (eur_item_price){
-    crypto_price = eur_item_price / selected_crypto_eur_price
+    crypto_price = (eur_item_price / selected_crypto_eur_price)
   }
+
   
   useEffect(() => {
     dispatch(fetchUsers())
+    dispatch(fetchCoins())
     console.log("Dispatched - FetchCoins")
   }, [])
   
@@ -28,27 +37,24 @@ const SelectCrypto = () => {
 
   return (
     <div className={s.wrapper}>
-      {/* {JSON.stringify(users, null, 2)} */}
-      {JSON.stringify(coins, null, 2)}
       <div className={s.select}>Select your crypto currency</div>
       <div>
-        <div className={s.crypto_item}>
-          <div>Checkbox</div>
-          <div onClick={() => dispatch(setCrypto({src: '', name: 'ETH', eur_rate: 3000}))}>ETH</div>
-          {/* <div>ETH</div> */}
-          
-        </div>
-        <div className={s.crypto_item}>
-          <div>Checkbox</div>
-          <div onClick={() => dispatch(setCrypto({src: '', name: 'BTC', eur_rate: 40000}))}>BTC</div>
-          {/* <div>BTC</div> */}
-        </div>
-        <div className={s.crypto_item}>
-          <div>Checkbox</div>
-          <div onClick={() => dispatch(setCrypto({src: '', name: 'ADA', eur_rate: 12}))}>ADA</div>
-          {/* <div>BTC</div> */}
-        </div>
-      </div>
+      {
+        coins.map(coin => (
+        <CryptoItem
+          key={coin.name}
+          crypto={coin}
+          onClick={() => dispatch(setCrypto(
+            {
+              src: coin.src,
+              name: coin.name,
+              eur_rate: coin.eur_rate
+            }
+          ))}
+          />
+        ))
+      }
+    </div>
 
       <div>
         <div className={s.total}>Total</div>
@@ -58,7 +64,7 @@ const SelectCrypto = () => {
         </div>
       </div>
 
-      <button className={[s.btn, "action-btn"].join(" ")}>NEXT</button>
+      <button onClick={() => goFoward()} className={[s.btn, "action-btn"].join(" ")}>NEXT</button>
     </div>
   )
 }

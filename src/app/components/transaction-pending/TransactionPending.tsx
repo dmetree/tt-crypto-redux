@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './TransactionPending.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const TransactionPending = () => {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate(`/transaction-status`)
+    }, 3000);
+  }, [])
+  
+  
+
   return (
     <div className={s.wrapper}>
       <div className={s.pending_info}>

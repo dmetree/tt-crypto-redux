@@ -20,7 +20,7 @@ export const fetchCoins = () => async (dispatch: AppDispatch) => {
     console.log('action creators COINS')
     try {
         dispatch(coinSlice.actions.coinFetching())
-        const response = await axios.get<ICrypto[]>('')
+        const response = await axios.get<ICrypto[]>('https://raw.githubusercontent.com/dmetree/tt-crypto-redux/main/src/coin_list.json')
         dispatch(coinSlice.actions.coinFetchingSuccess(response.data))
     } catch (e) {
         dispatch(coinSlice.actions.coinFetchingError("Can't fetch coins :("))
