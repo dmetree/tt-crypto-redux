@@ -15,7 +15,7 @@ const SelectCrypto = () => {
     navigate(`/select-promo`)
   }
   
-  const selected_crypto_title = useAppSelector((state) => state.coin.selectedCoin.name)
+  const selected_crypto_name = useAppSelector((state) => state.coin.selectedCoin.name)
   const selected_crypto_eur_price = useAppSelector((state) => state.coin.selectedCoin.eur_rate)
   const eur_item_price = useAppSelector((state) => state.price.price_EUR)
 
@@ -28,7 +28,6 @@ const SelectCrypto = () => {
 
   
   useEffect(() => {
-    dispatch(fetchUsers())
     dispatch(fetchCoins())
     console.log("Dispatched - FetchCoins")
   }, [])
@@ -59,7 +58,7 @@ const SelectCrypto = () => {
       <div>
         <div className={s.total}>Total</div>
         <div className={s.crypto_item}>
-          <div>{selected_crypto_title}:</div>
+          <div>{selected_crypto_name}:</div>
           <div>{crypto_price}</div>
         </div>
       </div>

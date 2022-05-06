@@ -13,8 +13,8 @@ const initialState: coinSlice = {
   coins: [],
   selectedCoin: {
     src: "",
-    name: 'Bitcoin',
-    eur_rate: 41000
+    name: '',
+    eur_rate: 0
   },
   isLoading: false,
   error: ''

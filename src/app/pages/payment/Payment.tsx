@@ -16,6 +16,8 @@ import s from './Payment.module.css';
 
 export const Payment = () => {
 
+  const selected_crypto_name = useAppSelector((state) => state.coin.selectedCoin.name)
+
   return (
     <div className={s.wrapper}>
       <div className={s.payment}>
@@ -24,11 +26,24 @@ export const Payment = () => {
         
         <div className={s.payment_option}>
           <div className={s.crypto_title}>
-            <img src="" alt="BTC" />
+            <img src="" alt="Crypto" />
             <div>Crypto currency</div>
           </div>
           <div>Change</div>
         </div>
+
+        {
+          selected_crypto_name ?
+          <div className={s.payment_option}>
+            <div className={s.crypto_title}>
+              <img src="" alt="" />
+              <div>{selected_crypto_name}</div>
+            </div>
+            <div>Change</div>
+          </div> :
+          ''
+        }
+        
 
         <Routes>
           <Route path="/" element={<SelectCrypto/>} />
