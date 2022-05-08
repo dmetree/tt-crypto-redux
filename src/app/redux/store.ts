@@ -1,15 +1,19 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import cryptoReducer from './reducers/crypto';
 import priceReducer from './reducers/price';
 import coinReducer from './reducers/coinSlice';
-import userReducer from './reducers/userSlice'
+import promoReducer from './reducers/promoSlice';
+import orderReducer from './reducers/addressRequestSlice';
+import addressReducer from './reducers/addressSlice';
+import transactionReducer from './reducers/transactionSlice';
 
 export const store = configureStore({
   reducer: {
-    crypto: cryptoReducer,
     coin: coinReducer,
+    promo: promoReducer,
     price: priceReducer,
-    users: userReducer
+    order: orderReducer,
+    address: addressReducer,
+    transaction: transactionReducer,
   },
 });
 

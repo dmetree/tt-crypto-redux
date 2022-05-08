@@ -1,24 +1,15 @@
 import React, { useEffect } from 'react';
 import s from './SelectCrypto.module.css';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
-import { setCrypto } from '../../redux/reducers/coinSlice';
-import { fetchCoins, fetchUsers } from '../../redux/reducers/actioncreators';
+import { setCoin, setCryptoPrice } from '../../redux/reducers/addressRequestSlice';
+import { fetchCoins } from '../../redux/reducers/actioncreators';
 import CryptoItem from './crypto-item/CryptoItem';
 import { useNavigate } from 'react-router-dom';
 
 const SelectCrypto = () => {
-  const dispatch = useAppDispatch();
-  
-
-  const navigate = useNavigate();
-  const goFoward = () => {
-    navigate(`/select-promo`)
-  }
-  
-  
-  const selected_crypto_name = useAppSelector((state) => state.coin.selectedCoin.name)
-  const selected_crypto_eur_price = useAppSelector((state) => state.coin.selectedCoin.eur_rate)
-  const eur_item_price = useAppSelector((state) => state.price.price_EUR)
+  const selected_crypto_name = useAppSelector((state) => state.order.orderInfo.selectedCoin.name)
+  const selected_crypto_eur_price = useAppSelector((state) => state.order.orderInfo.selectedCoin.eur_rate)
+  const eur_item_price = useAppSelector((state) => state.price.price_eur)
 
   const coins = useAppSelector(state => state.coin.coins);
 
@@ -28,14 +19,21 @@ const SelectCrypto = () => {
   }
 
 
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const goFoward = () => {
+    dispatch(setCryptoPrice({
+      crypto_price: crypto_price
+    }))
+    navigate(`/select-promo`)
+  }
+
   
   useEffect(() => {
     dispatch(fetchCoins())
-    console.log("Dispatched - FetchCoins")
   }, [])
   
   
-
   return (
     <>
       <div className={s.wrapper}>
@@ -46,7 +44,7 @@ const SelectCrypto = () => {
           <CryptoItem
             key={coin.name}
             crypto={coin}
-            onClick={() => dispatch(setCrypto(
+            onClick={() => dispatch(setCoin(
               {
                 src: coin.src,
                 name: coin.name,

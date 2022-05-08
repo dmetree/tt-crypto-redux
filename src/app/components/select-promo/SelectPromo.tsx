@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useEffect } from 'react';
 import s from './SelectPromo.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import { fetchPromos } from '../../redux/reducers/actioncreators';
+import { setPromo } from '../../redux/reducers/addressRequestSlice';
+import PromoItem from './promo-item/PromoItem';
+
 
 const SelectPromo = () => {
-
-  const selected_crypto_name = useAppSelector((state) => state.coin.selectedCoin.name)
+  const dispatch = useAppDispatch();
+  const selected_crypto_name = useAppSelector((state) => state.order.orderInfo.selectedCoin.name)
+  const promos = useAppSelector((state) => state.promo.promos)
   
   const navigate = useNavigate();
   const goFoward = () => {
@@ -20,6 +25,12 @@ const SelectPromo = () => {
     navigate(`/`)
   }
 
+    
+  useEffect(() => {
+    dispatch(fetchPromos())
+  }, [])
+
+
   return (
     <>
       <div className={s.payment_option}>
@@ -31,22 +42,25 @@ const SelectPromo = () => {
       </div>
 
       <div className={s.wrapper}>
-      <div className={s.select}>SelectPromo</div>
-      <div className={s.promo_item}>
-        <div>checkbox</div>
-        <div>FREE SHIPPING</div>
-      </div>
-      <div className={s.promo_item}>
-        <div>checkbox</div>
-        <div>10% OFF NEXT ORDER</div>
-      </div>
-      
-      <button onClick={() => goFoward()} className={[s.btn, "action-btn"].join(" ")}>NEXT</button>
-    </div>
+        <div className={s.select}>SelectPromo</div>
+        {
+          promos.map(promo => (
+          <PromoItem
+            key={promo.name}
+            promo={promo}
+            onClick={() => dispatch(setPromo(
+              {
+                id: promo.id,
+                name: promo.name
+              }
+            ))}
+            />
+          ))
+        }
 
+        <button onClick={() => goFoward()} className={[s.btn, "action-btn"].join(" ")}>NEXT</button>
+      </div>
     </>
-
-    
   )
 }
 

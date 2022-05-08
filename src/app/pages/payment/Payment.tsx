@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const Payment = () => {
 
-  const selected_crypto_name = useAppSelector((state) => state.coin.selectedCoin.name)
+  const selected_crypto_name = useAppSelector((state) => state.order.orderInfo.selectedCoin.name)
 
   
   const navigate = useNavigate();

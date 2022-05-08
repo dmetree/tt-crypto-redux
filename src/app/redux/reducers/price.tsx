@@ -1,11 +1,10 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IPrice } from '../../interfaces/IPrice';
 
-export interface PriceState {
-  price_EUR?: number
-}
 
-const initialState: PriceState = {
-  price_EUR: 250,
+
+const initialState: IPrice = {
+  price_eur: 250,
 }
 
 export const priceSlice = createSlice({
@@ -13,7 +12,7 @@ export const priceSlice = createSlice({
   initialState,
   reducers: {
     setEURPrice: (state, action: PayloadAction<number>) => {
-      state.price_EUR = action.payload
+      state.price_eur = action.payload
     },
   },
 })
