@@ -9,7 +9,7 @@ import { fetchAddress } from '../../redux/reducers/actioncreators';
 
 const EnterAddress = () => {
   const dispatch = useAppDispatch();
-  const payment_address = useAppSelector((state) => state.address.address.addr)
+  const payment_address = useAppSelector((state) => state.address.address)
 
   const navigate = useNavigate();
   const goFoward = () => {
@@ -34,9 +34,24 @@ const EnterAddress = () => {
       <SelectedPromo/>
       <Total/>
       <div className={s.wrapper}>
-      <div className={s.select}>Send your payment to {payment_address}</div>
+      <div className={s.select}>Send your payment to {}</div>
 			<div className={s.wallet_input}>
-				<input 
+				
+          {/* promos.map(promo => (
+          <PromoItem
+            key={promo.name}
+            promo={promo}
+            onClick={() => dispatch(setPromo(
+              {
+                id: promo.id,
+                name: promo.name
+              }
+            ))}
+            />
+          ))
+         */}
+
+        <input 
           className={s.input} 
           id="input_field"
           // value={payment_address}
