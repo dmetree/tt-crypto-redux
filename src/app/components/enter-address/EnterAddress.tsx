@@ -7,21 +7,22 @@ import SelectedPromo from '../reusable/selected/SelectedPromo';
 import SelectedMoney from '../reusable/selected/SelectedMoney';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { fetchAddress } from '../../redux/reducers/actioncreators';
+import copy from "copy-to-clipboard";  
 
 const EnterAddress = () => {
   const dispatch = useAppDispatch();
-  const payment_address = useAppSelector((state) => state.address.address.addr)
-
+  const payment_address = useAppSelector((state) => state.address.address.addr);
   const navigate = useNavigate();
 
   const goFoward = () => {
-    
     navigate(`/transaction-pending`)
   }
 
-  const getAddress = () => {
-    
-  }
+
+  const copyToClipboard = () => {
+    copy(payment_address);
+    alert(`You have copied "${payment_address}"`);
+ }
 
   useEffect(() => {
     dispatch(fetchAddress())
@@ -44,7 +45,7 @@ const EnterAddress = () => {
           value={payment_address}
           />
 				
-				<button className={s.btn_copy} onClick={() => getAddress()}>COPY</button>
+				<button className={s.btn_copy} onClick={() => copyToClipboard()}>COPY</button>
 			</div>
       <button onClick={() => goFoward()} className={[s.btn, "action-btn"].join(" ")}>NEXT</button>
     </div>
