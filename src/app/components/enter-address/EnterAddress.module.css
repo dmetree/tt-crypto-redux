@@ -27,6 +27,12 @@
     color: #fff;
     background-color:#4077C1;
 }
+.btn_copy:hover{
+    background-color:#22508d;
+}
+.btn_copy:active{
+    background-color:#094390;
+}
 
 .btn{
     margin-top: 4rem;
