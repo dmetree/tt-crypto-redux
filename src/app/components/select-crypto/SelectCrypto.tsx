@@ -5,7 +5,9 @@ import { setCoin, setCryptoPrice } from '../../redux/reducers/addressRequestSlic
 import { fetchCoins } from '../../redux/reducers/actioncreators';
 import CryptoItem from './crypto-item/CryptoItem';
 import { useNavigate } from 'react-router-dom';
-import Total from '../reusable/total/Total'
+import Total from '../reusable/total/Total';
+import SelectedMoney from '../reusable/selected/SelectedMoney';
+
 
 const SelectCrypto = () => {
   const selected_crypto_name = useAppSelector((state) => state.order.orderInfo.selectedCoin.name)
@@ -36,6 +38,7 @@ const SelectCrypto = () => {
   
   return (
     <>
+      <SelectedMoney/>
       <div className={s.wrapper}>
       <div className={s.select}>Select your crypto currency</div>
       <div>

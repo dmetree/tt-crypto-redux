@@ -7,6 +7,7 @@ import { setPromo } from '../../redux/reducers/addressRequestSlice';
 import PromoItem from './promo-item/PromoItem';
 import Total from '../reusable/total/Total';
 import SelecteCoin from '../reusable/selected/SelectedCoin';
+import SelectedMoney from '../reusable/selected/SelectedMoney';
 
 
 
@@ -36,7 +37,7 @@ const SelectPromo = () => {
 
   return (
     <>
-
+      <SelectedMoney/>
       <SelecteCoin/>
       <Total/>
 

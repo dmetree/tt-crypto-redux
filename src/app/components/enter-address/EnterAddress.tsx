@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Total from '../reusable/total/Total';
 import SelecteCoin from '../reusable/selected/SelectedCoin';
 import SelectedPromo from '../reusable/selected/SelectedPromo';
+import SelectedMoney from '../reusable/selected/SelectedMoney';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { fetchAddress } from '../../redux/reducers/actioncreators';
 
@@ -24,12 +25,10 @@ const EnterAddress = () => {
     dispatch(fetchAddress())
   }, [])
 
-  
-  
-
 
   return (
     <>
+      <SelectedMoney/>
       <SelecteCoin/>
       <SelectedPromo/>
       <Total/>
