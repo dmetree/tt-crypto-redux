@@ -13,7 +13,9 @@ const EnterAddress = () => {
   const payment_address = useAppSelector((state) => state.address.address.addr)
 
   const navigate = useNavigate();
+
   const goFoward = () => {
+    
     navigate(`/transaction-pending`)
   }
 

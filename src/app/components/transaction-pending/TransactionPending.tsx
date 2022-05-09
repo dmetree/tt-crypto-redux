@@ -13,9 +13,9 @@ const TransactionPending = () => {
 
   useEffect(() => {
     dispatch(fetchTransaction())
-    // setTimeout(() => {
-    //   navigate(`/transaction-status`)
-    // }, 3000);
+    setTimeout(() => {
+      navigate(`/transaction-status`)
+    }, 3000);
   }, [])
   
   
@@ -26,7 +26,7 @@ const TransactionPending = () => {
         <img src={refreshUrl} alt="Refresh" />
         <h2 className={s.status}>Transaction pending</h2>
         <div className={s.text_id}>Transaction ID</div>
-        <div className={s.hash}>{transaction_id}:::321423543543h543j5h4jhko23jo423j4o32dd</div>
+        <div className={s.hash}>{transaction_id}</div>
         <p className={s.text}>Lorem ipsum dolor sit amet, consectetur<br/> adipiscing elit, sed do eiusmod...</p>
       </div>
       <button className='action-btn'>REFRESH</button>
