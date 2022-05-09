@@ -15,3 +15,36 @@
     align-items: center;
     justify-content: center;
 }
+.hash {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+
+    text-align: center;
+
+    color: #4077C1;
+}
+.status {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 36px;
+
+    text-align: center;
+
+    color: #3F4048;
+}
+.text_id,
+.text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+
+    color: #787A81;
+}

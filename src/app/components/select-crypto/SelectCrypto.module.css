@@ -4,15 +4,6 @@
     flex-direction: column;
 }
 
-.crypto_item{
-    padding: 22px 25px;
-    background-color: #fff;
-    border: 1px solid #F9F9F9;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: start;
-}
-
 .select, .total {
     margin: 39px 0 19px 0;
     font-weight: 500; 
@@ -24,3 +15,77 @@
     margin-right: 0;
     align-self: flex-end;
 }
+
+
+
+.form_control {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5em;
+  padding: 22px 25px;
+  background-color: #fff;
+  border: 1px solid #F9F9F9;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form_control + .form_control {
+  margin-top: 1em;
+}
+
+.form_control:focus-within {
+  color: var(--form-control-color);
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #EDEFF0;
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 25px;
+  height: 25px;
+  border: 0.15em solid #EDEFF0;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  background-image: url('./../../../assets/imgs/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  /* box-shadow: inset 1em 1em #4077C1; */
+  background-color: #4077C1;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.total {
+  margin: 39px 0 19px 0;
+  font-weight: 500; 
+  font-size: 17px;
+}
+
+.total_item {
+  display: flex;
+  justify-content: start;
+  gap: 0.5em;
+  padding: 22px 25px;
+  background-color: #fff;
+  border: 1px solid #F9F9F9;
+  box-shadow: 0px 1px 10px rgb(0 0 0 / 5%);
+}
+

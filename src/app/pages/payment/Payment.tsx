@@ -14,6 +14,8 @@ import TransactionStatus from '../../components/transaction-status/TransactionSt
 import s from './Payment.module.css';
 import { useNavigate } from 'react-router-dom';
 
+import BitcoinUrl from './../../../assets/imgs/bitcoin.svg'
+
 
 export const Payment = () => {
 
@@ -29,28 +31,15 @@ export const Payment = () => {
     <div className={s.wrapper}>
       <div className={s.payment}>
         <h2>Pay with Crypto</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p className={s.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         
         <div className={s.payment_option}>
           <div className={s.crypto_title}>
-            <img src="" alt="Crypto" />
+            <img src={BitcoinUrl} alt="Crypto" className={s.image}/>
             <div>Crypto currency</div>
           </div>
-          <div>Change</div>
+          <div className={s.change}>Change</div>
         </div>
-
-        {/* {
-          selected_crypto_name ?
-          <div className={s.payment_option}>
-            <div className={s.crypto_title}>
-              <img src="" alt="" />
-              <div>{selected_crypto_name}</div>
-            </div>
-            <div onClick={() => change()}>Change</div>
-          </div> :
-          ''
-        } */}
-        
 
         <Routes>
           <Route path="/" element={<SelectCrypto/>} />

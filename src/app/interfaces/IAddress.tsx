@@ -1,3 +1,3 @@
 export interface IAddress {
-    address: string;
+    addr: string;
 }

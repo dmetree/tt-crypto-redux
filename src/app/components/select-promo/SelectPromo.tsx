@@ -5,6 +5,9 @@ import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { fetchPromos } from '../../redux/reducers/actioncreators';
 import { setPromo } from '../../redux/reducers/addressRequestSlice';
 import PromoItem from './promo-item/PromoItem';
+import Total from '../reusable/total/Total';
+import SelecteCoin from '../reusable/selected/SelectedCoin';
+
 
 
 const SelectPromo = () => {
@@ -33,13 +36,9 @@ const SelectPromo = () => {
 
   return (
     <>
-      <div className={s.payment_option}>
-        <div className={s.crypto_title}>
-          <img src="" alt="" />
-          <div>{selected_crypto_name}</div>
-        </div>
-        <div onClick={() => change()}>Change</div>
-      </div>
+
+      <SelecteCoin/>
+      <Total/>
 
       <div className={s.wrapper}>
         <div className={s.select}>SelectPromo</div>

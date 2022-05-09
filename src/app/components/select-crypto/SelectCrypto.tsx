@@ -5,6 +5,7 @@ import { setCoin, setCryptoPrice } from '../../redux/reducers/addressRequestSlic
 import { fetchCoins } from '../../redux/reducers/actioncreators';
 import CryptoItem from './crypto-item/CryptoItem';
 import { useNavigate } from 'react-router-dom';
+import Total from '../reusable/total/Total'
 
 const SelectCrypto = () => {
   const selected_crypto_name = useAppSelector((state) => state.order.orderInfo.selectedCoin.name)
@@ -27,7 +28,6 @@ const SelectCrypto = () => {
     }))
     navigate(`/select-promo`)
   }
-
   
   useEffect(() => {
     dispatch(fetchCoins())
@@ -58,7 +58,7 @@ const SelectCrypto = () => {
 
       <div>
         <div className={s.total}>Total</div>
-        <div className={s.crypto_item}>
+        <div className={s.total_item}>
           <div>{selected_crypto_name}:</div>
           <div>{crypto_price}</div>
         </div>

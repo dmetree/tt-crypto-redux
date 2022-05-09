@@ -9,7 +9,7 @@ interface addressSlice {
 
 const initialState: addressSlice = {
   address: {
-    address: ""
+    addr: ""
   },
   isLoading: false,
   error: ""

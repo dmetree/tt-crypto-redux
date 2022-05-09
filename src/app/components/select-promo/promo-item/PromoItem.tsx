@@ -9,10 +9,10 @@ interface PromoItemProps {
 
 const PromoItem: FC<PromoItemProps> = ({promo, onClick}) => {
   return (
-    <div className={s.promo_item}>
-      <div>Checkbox</div>
-      <div onClick={() => onClick(promo)}>{promo.name}</div>
-    </div>
+    <label onClick={() => onClick(promo)} className={s.form_control}>
+      <input type="radio" name="radio" id={promo.name}/>
+      {promo.name}
+    </label>
   )
 }
 

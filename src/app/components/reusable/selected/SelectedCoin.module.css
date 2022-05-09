@@ -1,0 +1,23 @@
+.payment_option{
+    padding: 13px 24px;
+    margin: 10px 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+.crypto_title{
+    display: flex;
+}
+
+.change {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: right;
+    color: #4077C1;
+    cursor: pointer;
+  }

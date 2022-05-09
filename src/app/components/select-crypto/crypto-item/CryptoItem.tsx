@@ -9,9 +9,12 @@ interface CryptoItemProps {
 
 const CryptoItem: FC<CryptoItemProps> = ({crypto, onClick}) => {
   return (
+
     <div className={s.crypto_item}>
-      <div>Checkbox</div>
-      <div onClick={() => onClick(crypto)}>{crypto.name}</div>
+      <label onClick={() => onClick(crypto)} className={s.form_control}>
+        <input type="radio" name="radio" id={crypto.name}/>
+        {crypto.name}
+      </label>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './TransactionStatus.module.css';
 import { useNavigate } from 'react-router-dom';
+import successUrl from './../../../assets/imgs/success.svg'
 
 const TransactionStatus = () => {
 
@@ -12,9 +13,9 @@ const TransactionStatus = () => {
 
   return (
     <div className={s.wrapper}>
-      <img src="" alt="status-icon" />
+      <img src={successUrl} alt="status-icon" />
       <h2>Payment successful</h2>
-      <p>Nullam placerat erat volutpat mollis congue. Nunc felis libero, interdum eu purus eget, posuere porttitor nisi. Suspendisse potenti. Etiam ut lectus augue. </p>
+      <p className={s.text}>Nullam placerat erat volutpat mollis congue. Nunc felis<br/> libero, interdum eu purus eget, posuere porttitor nisi.<br/> Suspendisse potenti. Etiam ut lectus augue. </p>
       <button onClick={() => goHome()} className='action-btn'>HOME</button>
     </div>
   )

@@ -1,4 +1,29 @@
 .wrapper{
     padding: 4rem;
     background-color: #fff;
+
+    display: grid;
+    align-content: flex-start;
+    justify-items: flex-start;
+}
+
+.text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: #53545A;
+    justify-self: center;
+}
+.image {
+    justify-self: center;
+}
+.text_long {
+    text-align: left;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;  
 }
